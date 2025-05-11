@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tình Yêu 💖</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        color: #fff;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-top: 50px;
+        animation: pulse 2s infinite;
+      }
+
+      .typing {
+        font-size: 1.5em;
+        margin-top: 20px;
+        border-right: 2px solid white;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        animation: typing 5s steps(40, end) forwards, blink 0.7s infinite;
+      }
+
+      .big-heart {
+        font-size: 10em;
+        margin-top: 30px;
+        animation: pulse 3s infinite;
+        color: #ff5e78;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .heart {
+        position: absolute;
+        color: pink;
+        font-size: 1.5em;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💖 Anh Yêu Em 💖</h1>
+    <div class="typing" id="typing-text">
+      Em hứa là phải bên anh dù có chuyện gì sảy ra đó nha!!
+    </div>
+    <div class="big-heart">❤️</div>
+
+    <script>
+      // Tạo hiệu ứng rơi trái tim
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 2 + Math.random() * 3 + "s";
+        heart.innerText = "💗";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      setInterval(createHeart, 300);
+    </script>
+  </body>
+</html>
